@@ -1,0 +1,27 @@
+{
+  "document_version": "1.2",
+  "scope": "document_and_acceptance_materials_not_application",
+  "chapter_count": 28,
+  "new_chapters": [
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "minimum_case_definitions": 19,
+  "full_case_definitions": 28,
+  "all_47_case_ids_in_docx_html_markdown": true,
+  "all_case_execution_statuses": "NOT_RUN",
+  "e2e_automation_implemented": false,
+  "docx_pages": 42,
+  "docx_internal_links": 88,
+  "broken_docx_links": [],
+  "html_internal_links": 87,
+  "broken_html_links": [],
+  "docx_text_out_of_page_spans": 0,
+  "all_docx_pages_visually_reviewed": true,
+  "desktop_mobile_html_visually_reviewed": true,
+  "standalone_docx_html_equal_to_zip_staging_copies": true,
+  "live_hermes_deepseek_executed": false
+}

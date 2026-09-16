@@ -1,0 +1,8 @@
+# Hermes 原生配置片段，不是完整运行配置；部署前替换 model_id。
+# API Key 使用 DEEPSEEK_API_KEY 注入，不写进本文件。
+# 工作目录、工具网关、网络和凭据隔离由业务运行环境实现。
+model:
+  provider: deepseek
+  default: REPLACE_WITH_VERIFIED_DEEPSEEK_MODEL_ID
+skills:
+  write_approval: true

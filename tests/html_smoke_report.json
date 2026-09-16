@@ -1,0 +1,33 @@
+{
+  "artifact": "documentation_html_not_application",
+  "document_version": "1.2",
+  "viewports": [
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "load_mode": "set_content_on_about_blank",
+      "page_errors": [],
+      "anchor_count": 87,
+      "all_anchors_exist": true,
+      "all_five_quick_links_clicked": true,
+      "horizontal_overflow": false,
+      "new_chapters": 5
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "load_mode": "set_content_on_about_blank",
+      "page_errors": [],
+      "anchor_count": 87,
+      "all_anchors_exist": true,
+      "all_five_quick_links_clicked": true,
+      "horizontal_overflow": false,
+      "new_chapters": 5
+    }
+  ],
+  "live_backend_tested": false
+}

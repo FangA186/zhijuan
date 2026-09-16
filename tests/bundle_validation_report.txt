@@ -1,0 +1,2 @@
+PASS: 5 JSON Schemas, local references, 20 core operations, YAML parsing.
+NOT RUN: full OpenAPI spec validator, PostgreSQL migration, live Hermes, model quality or production security tests.

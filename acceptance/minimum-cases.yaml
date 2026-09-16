@@ -1,0 +1,671 @@
+document_version: '1.2'
+artifact_kind: test_specification_not_execution_report
+gate: G-MIN
+default_status: NOT_RUN
+note: 用例是验收规程，未实现应用E2E自动化，未进行live执行。
+cases:
+- id: MIN-01
+  title: 启动与配置
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: &id001
+  - primary
+  - junior
+  - senior
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 按说明启动前端、API、数据库、Worker、Hermes 和渲染器；配置密钥只在服务端
+  expected_results:
+  - 实际健康检查、运行版本及脱敏启动记录；不是只启动数据库和队列
+  evidence_required:
+  - 脱敏启动日志
+  - 真实版本/health记录
+  - 接收者启动记录
+  owners:
+  - backend
+  - agent
+  - qa
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-02
+  title: 三学段输入
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 分别填写上述三套规格；确认知识点和用途
+  expected_results:
+  - 保存三份 spec；20 分、5 个叶子题；不能自动扩大范围
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-03
+  title: 计划确认
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 显示逐题考查目标、题型、分值；教师确认后开始
+  expected_results:
+  - blueprint 版本与确认记录；未确认不产生正式生成任务
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-04
+  title: 真实命题
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 网页提交后返回 job_id；Worker 经 Adapter 调用 Hermes，再调用 DeepSeek
+  expected_results:
+  - 可关联的任务、Hermes 运行和供应商调用记录；输出来源为 live，非固定模板或直接绕过 Hermes 调模型
+  evidence_required:
+  - spec/blueprint指纹
+  - Hermes运行记录
+  - 供应商request_id或请求响应摘要与用量
+  - job_id/trace_id
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-05
+  title: 进度与刷新
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 显示已生成／待检查／修订题数；刷新或重连页面
+  expected_results:
+  - 同一 job_id 恢复进度，不重复生成；后台事件与页面一致
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-06
+  title: 基础检查与盲解
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 对最终题面独立求解；执行结构、分值、答案引用和所选数学计算检查
+  expected_results:
+  - 两个隔离任务输入摘要、实际工具记录、PASS／FAIL／REVIEW；同模型标记 SAME_MODEL
+  evidence_required:
+  - 不含参考答案的盲解输入摘要
+  - 独立工作区与工具授权
+  - 真实检查器结果
+  - SAME_MODEL标签
+  owners:
+  - agent
+  - subject_reviewer
+  - qa
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-07
+  title: 问题修订
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 通过受控故障样例触发一次错误，修改或退回；最多两轮内容修订
+  expected_results:
+  - 每轮有原因、版本和新检查；超限进入待审，不无限重试
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-08
+  title: 手工编辑
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 教师改一处题干数字或评分点并保存
+  expected_results:
+  - revision 增加、旧检查失效；重新检查当前题面
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-09
+  title: 单题重生成
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 保留该题槽位的目标、题型和分值，重新生成一题
+  expected_results:
+  - 只替换当前题；其他题不变化；迟到结果不能覆盖教师更新
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-10
+  title: 保存与复核
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 关闭再打开项目，查看答案、解析和未解决问题
+  expected_results:
+  - 数据持久化；教师确认绑定当前版本；失败题不能直接算已完成
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-11
+  title: 草稿交付
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 从同一快照导出学生 PDF、教师 PDF 和 JSON
+  expected_results:
+  - 真实可打开的文件；版本一致；草稿标识清楚；学生文件不含私有答案
+  evidence_required:
+  - 学生草稿PDF
+  - 教师草稿PDF
+  - JSON快照
+  - 三个文件的版本与SHA256
+  - 人工排版检查
+  owners:
+  - frontend
+  - renderer
+  - qa
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-12
+  title: 证据归档
+  phase: M2
+  gate: G-MIN
+  kind: functional_or_handoff
+  priority: P1
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 整理三个学段的运行、文件与异常记录
+  expected_results:
+  - 三学段各一条完整成功链路；必需检查点不缺失；状态由执行人签署
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - product
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+- id: MIN-N01
+  title: 缺少或无效密钥
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: once_per_shared_environment_and_each_applicable_capability
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 删除凭据／使用无效凭据后生成
+  expected_results:
+  - 缺少凭据在调用前拒绝；无效凭据显示明确鉴权失败；不返回假题、不泄露密钥
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-N02
+  title: 规格矛盾
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: once_per_shared_environment_and_each_applicable_capability
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 总分 20，但题型分值之和为 18
+  expected_results:
+  - 在模型调用前拒绝；页面显示差额
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-N03
+  title: 无效生成结果
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: once_per_shared_environment_and_each_applicable_capability
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 注入缺题干、非法 JSON 或无效答案引用
+  expected_results:
+  - 有限格式修复或失败；非法结果不进入可用试卷
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-N04
+  title: 检查未完成
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: once_per_shared_environment_and_each_applicable_capability
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 令检查器超时或返回不支持
+  expected_results:
+  - 显示 REVIEW／故障，不写 PASS；保留待核项
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-N05
+  title: 旧证据
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 改题后使用修改前的检查或审批
+  expected_results:
+  - 版本过期；拒绝确认／正式发布；允许有明确标识的受限草稿
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-N06
+  title: 取消与迟到
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: once_per_shared_environment_and_each_applicable_capability
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 运行中取消任务，随后模拟供应商迟到返回
+  expected_results:
+  - 不再安排新调用；迟到内容不写入当前卷；已发生用量保留待核或实际值
+  evidence_required:
+  - 实际输入与版本摘要
+  - 操作事件/错误记录
+  - 预期与实际对照及必要截图/文件
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据
+- id: MIN-N07
+  title: 答案泄露
+  phase: M2
+  gate: G-MIN
+  kind: negative_or_resilience
+  priority: P0
+  required: true
+  status: NOT_RUN
+  execution_mode: manual_or_future_automation
+  automation_implemented: false
+  school_stages: *id001
+  repeat_rule: each_stage
+  preconditions:
+  - 在非生产验收环境执行，范围/预算/用途已批准
+  - 使用实际应用版本、固定Hermes和服务端DeepSeek配置
+  - 结果尚未执行；测试注入须独立标记
+  steps:
+  - 检查学生 API、HTML、PDF 与资源
+  expected_results:
+  - 不包含私有答案、解析或评分字段；不能只靠 CSS 隐藏
+  evidence_required:
+  - 学生API字段检查
+  - HTML/DOM私有字段检查
+  - PDF文本与视觉检查
+  - 资源访问记录
+  owners:
+  - qa
+  - backend
+  reference_section: '25'
+  failure_rule: 任一必需预期不符则FAIL；环境未就绪则BLOCKED；无运行证据保持NOT_RUN
+  not_applicable_policy: 不可豁免；三学段及核心链路必须执行
+  actual_result: null
+  executed_at: null
+  executor: null
+  evidence_refs: []
+  fault_injection_note: 故障注入只验证处理路径，不能作为真实模型错误率或真实成功调用证据

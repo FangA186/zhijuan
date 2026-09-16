@@ -1,0 +1,34 @@
+{
+  "document_version": "1.2",
+  "bundle_type": "design_contracts_acceptance_templates_reference_code",
+  "application_runnable": false,
+  "hermes_source_included": false,
+  "hermes_installed": false,
+  "live_deepseek_called": false,
+  "real_exam_export_pipeline_implemented": false,
+  "minimum_acceptance_status": "NOT_RUN",
+  "full_acceptance_status": "NOT_RUN",
+  "acceptance_case_definitions": {
+    "minimum": 19,
+    "full": 28,
+    "total": 47
+  },
+  "delivered": [
+    "updated_docx_html_markdown",
+    "mvp_phase_plan",
+    "minimum_and_full_case_specifications",
+    "three_stage_spec_fixtures",
+    "capability_and_evidence_templates",
+    "existing_contracts_skills_reference_rules",
+    "offline_material_validation"
+  ],
+  "not_delivered": [
+    "runnable_frontend_backend_worker",
+    "real_hermes_adapter",
+    "hermes_source_clone_or_installation",
+    "live_model_tests",
+    "complete_subject_checkers",
+    "production_exam_renderer",
+    "security_load_recovery_execution"
+  ]
+}
